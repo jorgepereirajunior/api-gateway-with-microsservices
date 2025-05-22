@@ -10,7 +10,7 @@ export class AppService {
       const payload = {
         sub: '123',
         username: credential.username,
-        password: credential.password
+        role: 'admin'
       }
 
       const token = this.jwtService.sign(payload)
@@ -20,7 +20,13 @@ export class AppService {
 
     throw new UnauthorizedException('Invalid credentials')
   }
-  getData(): { message: string } {
-    return { message: 'Hello API' }
+
+  async validateToken(token: string) {
+    try {
+      const decoded = this.jwtService.verify(token)
+      return { valid: true, userId: decoded.sub, role: decoded.role }
+    } catch (err) {
+      return { valid: false, userId: null, role: null }
+    }
   }
 }
