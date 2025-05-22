@@ -90,7 +90,7 @@ nx serve user-service
 
 ### 🔐 Autenticação (`Auth Service` via `API Gateway`)
 
-- `POST api/auth/login`
+- `POST /auth/login`
 
 ```json
 {
@@ -109,7 +109,7 @@ nx serve user-service
 
 ### 👤 Acesso ao Perfil (`User Service` via `API Gateway`)
 
-- `GET api/user`
+- `GET /user/profile`
   **Cabeçalho necessário:**
 
 ```http
@@ -120,6 +120,7 @@ Authorization: Bearer <access_token>
 
 ## ⚠️ Observações Importantes
 
+- Este projeto é apenas para **fins educacionais**.
 - Não implementa criptografia de senhas, nem segurança avançada com refresh tokens ou roles.
 - JWT é assinado com segredo estático e mantido no código.
 
