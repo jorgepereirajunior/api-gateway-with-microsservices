@@ -6,7 +6,7 @@ export class AppService {
   constructor(private readonly jwtService: JwtService) {}
   login(credential: { username: string; password: string }) {
     // ⭕ coded without DB logic
-    if (credential.username === 'admin' && credential.password === 'password') {
+    if (credential.username === 'admin' && credential.password === '123456') {
       const payload = {
         sub: '123',
         username: credential.username,
